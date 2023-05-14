@@ -1,3 +1,4 @@
+from csv import reader
 def get_expensive_fruit(data: str) -> str:
     """
     This function returns the name of the most expensive fruit
@@ -8,6 +9,16 @@ def get_expensive_fruit(data: str) -> str:
         str: name of the most expensive fruit
     """
     # your code here
-    return  
+    f=open('fruits.csv')
+    r=reader(f,delimiter=',')
+    s=''
+    m=0
+    for i in r:
+        if i[1]!='price' and m<float(i[1]):
+            m=float(i[1])
+            s=i[0]
+    return  s
+data=str()
+print(get_expensive_fruit(data))
 
 
